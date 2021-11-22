@@ -4,7 +4,7 @@ import time
 import matplotlib.pyplot as plt
 
 number_nodes = 10
-probability = 1
+probability = 0.5
 
 G_RE = nx.erdos_renyi_graph(n=number_nodes, p=probability, seed=int(time.time()))
 
@@ -30,3 +30,7 @@ for i in selected_edges:
 
 for i in selected_nodes:
     print("Log Nodes:", nodes[i])
+
+pos = nx.spring_layout(G_RE)
+nx.draw(G_RE, pos=pos, with_labels=True)
+plt.savefig('fig.png',bbox_inches='tight')
