@@ -31,6 +31,15 @@ for i in selected_edges:
 for i in selected_nodes:
     print("Log Nodes:", nodes[i])
 
+
+connectivity = nx.is_connected(G_RE)
+number_of_connected_comps = nx.number_connected_components(G_RE)
+num_isolated_nodes = len(list(nx.isolates(G_RE)))
+
+print("connectivity:", connectivity)
+print("number_of_connected_comps:", number_of_connected_comps)
+print("num_isolated_nodes:", num_isolated_nodes)
+
 pos = nx.spring_layout(G_RE)
 nx.draw(G_RE, pos=pos, with_labels=True)
 plt.savefig('fig.png',bbox_inches='tight')
